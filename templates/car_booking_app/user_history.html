@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>car booking</title>
+    </head>
+    <body>
+        <h1>User history</h1>
+
+        {% for booking in user_history %}<br>
+        <p> Booking
+            booking_id: {{booking.booking_id}}<br>
+            car_license_no: {{booking.car_id.car_license_no}}<br>
+            manufacturer: {{booking.car_id.manufacturer}}<br>
+            start_time: {{booking.start_time}}<br>
+            end_time: {{booking.end_time}}<br>
+
+        </p>
+        {% endfor %}
+
+         <a href="/car_booking_app/logout/"><button>Logout</button></a>
+         <a href="/car_booking_app/"><button>Home</button></a>
+
+    </body>
+</html>

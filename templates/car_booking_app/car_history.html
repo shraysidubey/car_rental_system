@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>car booking</title>
+    </head>
+    <body>
+        <h1>Car history</h1>
+
+
+        {% if car_not_found %}
+            <p>Car you are looking for not found in our database records...!!</p>
+
+        {% else %}
+
+            Car Booking details:<br>
+               car_license_no :  {{car_object.car_license_no}}<br>
+        <p>
+            {% for i in car_history %}<br>
+                user_id: {{i.user_id}}<br>
+                car_id: {{i.car_id}}<br>
+                booking_id: {{i.booking_id}}<br>
+                start_time: {{i.start_time}}<br>
+                end_time: {{i.end_time}}<br>
+
+            {% endfor %}
+        </p>
+        {% endif %}
+        <p>
+         <a href="/car_booking_app/logout/"><button>Logout</button></a>
+            <a href="/car_booking_app/"><button>Home</button></a></p>
+    </body>
+</html>

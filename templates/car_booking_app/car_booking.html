@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>car booking</title>
+    </head>
+    <body>
+        <h1>Booking a car</h1>
+
+        {% if success_message %}
+            {{success_message}} <br>
+            Booking Id: {{booking_object.booking_id}} <br>
+            Car Model: {{booking_object.car_id.manufacturer}}  {{booking_object.car_id.model_city}}</p <br>
+            License no: {{booking_object.car_id.car_license_no}} <br>
+            Booking start time: {{booking_object.start_time}}<br>
+            Booking end time:  {{booking_object.end_time}} <br>
+            Booking By user: {{booking_object.user_id.alias}} <br>
+            Total payment: {{booking_object.total_booking_price}}
+
+        {% elif available_car_list %}
+              <form id="car_booking_form" method="post" action="/car_booking_app/car_booking/">
+                  {% csrf_token %}
+                  {% for i in available_car_list %}
+                      <input type="radio" id="{{i.id}}" name="car" value="{{i.id}}">
+                      <label for="{{i.id}}">{{i.manufacturer}}</label><br>
+                  {% endfor %}
+                   <input type="hidden" name="start_time" id="start_time" value="{{start_time}}">
+                   <input type="hidden" name="end_time" id="end_time"   value="{{end_time}}">
+                   <input type="submit" name="car_booking_form" value="book" />
+                  {{user_to_car_object.base_price}}
+              </form>
+
+        {% elif date_time_form %}
+
+             <form id="time_form" name="time_form" method="post" action="/car_booking_app/car_booking/">
+                  {% csrf_token %}
+                   {% for field in date_time_form.visible_fields %}<br>
+                        {{ field.errors }}<br>
+                        {{ field.help_text }}<br>
+                        {{ field.name }}<br>
+                        {{field}}
+                   {% endfor %}
+                   <input type="submit" name="time_form" value="book" />
+            </form>
+
+        {% endif %}
+        <p>
+        <a href="/car_booking_app/logout/"><button>Logout</button></a>
+        <a href="/car_booking_app/"><button>Home</button></a>
+            <a href="/car_booking_app/user_history/"><button>All bookings of user: {{request.user.alias}}</button></a></p>
+
+
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>car booking</title>
+
+</head>
+<body>
+<div>
+        <ul>
+
+    {% if user.is_authenticated %}
+
+        <li><a href="/car_booking_app/user/" >User Profile</a></li><br>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+
+    {% else %}
+
+        <li><a href="{% url 'register' %}">Register Here</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+
+    {% endif %}
+
+        </ul>
+    </div>
+</body>
+</html>

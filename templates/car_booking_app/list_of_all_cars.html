@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list of cars</title>
+</head>
+<body>
+
+        {% for i in all_car_objects %}
+
+        <p>
+            car_license_no: {{i.car_license_no}}<br>
+            manufacturer: {{i.manufacturer}}<br>
+            model_city: {{i.model_city}}<br>
+            base_price: {{i.base_price}}<br>
+            price_per_hour: {{i.price_per_hour}}<br>
+            security_deposite: {{i.security_deposite}}<br>
+
+            <a href="/car_booking_app/car_history/{{i.id}}">details</a>
+        {% endfor %}
+
+        </p>
+
+</body>
+</html>

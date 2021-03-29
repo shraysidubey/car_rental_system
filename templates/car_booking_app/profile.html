@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>user profile</title>
+    </head>
+            <script>
+                function sendDelete(event)
+            {
+                var xhttp = new XMLHttpRequest();
+                event.preventDefault();
+                xhttp.open("DELETE", "");
+                xhttp.send();
+                window.location.href = "/car_booking_app/user/";
+            }
+            </script>
+    <body>
+
+        <strong>username: </strong>{{user.user.username}}<br>
+        <strong>email: </strong>{{user.user.email}}<br>
+        <strong>phone_number: </strong>{{user.phone_number}}<br>
+        <strong>alias: </strong>{{user.alias}}<br>
+
+    <p>
+        <a href="/car_booking_app/user/delete/"><button> Delete </button></a><br></p>
+    <p>
+        <a href="/car_booking_app/car_details/"><button> car details </button></a><br></p>
+    <p>
+        <a href="/car_booking_app/car_booking/"><button> car booking </button></a><br></p>
+    <p>
+        <a href="/car_booking_app/logout/"><button>Logout</button></a><br></p>
+    <p>
+        <a href="/car_booking_app/list_of_all_cars/"><button>List of all cars</button></a><br></p>
+
+        <form id="edit_button" method="post" action="/car_booking_app/user/">
+            {% csrf_token %}
+
+        <input type="submit" name="edit_submit" value="edit"/>
+
+        </form>
+
+    </body>
+</html>

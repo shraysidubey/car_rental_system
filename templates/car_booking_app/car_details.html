@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>car details</title>
+    </head>
+
+    <body>
+        <h1>Add car details</h1>
+
+        <form id="car_details" method="post" action="/car_booking_app/car_details/">
+
+            {% csrf_token %}
+
+            {% for field in form.visible_fields %}<br>
+                {{ field.errors }}<br>
+                {{ field.help_text }}<br>
+                {{ field.name }}<br>
+                {{field}}
+
+            {% endfor %}
+
+            <input type="submit" name="submit" value="Add car details" />
+        </form>
+    </body>
+
+</html>

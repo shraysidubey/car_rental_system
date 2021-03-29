@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit profile</title>
+</head>
+<body>
+
+        <form id="details_form" method="post" action="/car_booking_app/user/">
+
+            {% csrf_token %}
+
+            {% for field in form.visible_fields %}<br>
+                {{ field.errors }}<br>
+                {{ field.help_text }}<br>
+                {{ field.name }}<br>
+                {{ field}}
+
+            {% endfor %}
+            {% for field in form1.visible_fields %}<br>
+                {{ field.errors }}<br>
+                {{ field.help_text }}<br>
+                {{ field.name }}<br>
+                {{ field}}
+
+            {% endfor %}
+
+
+            <input type="submit" name="profile_submit" value="save" />
+        </form>
+    </body>
+</html>
