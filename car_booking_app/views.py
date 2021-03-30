@@ -225,10 +225,15 @@ def total_payment(start_time, end_time, car_id):
                                , object_of_car.security_deposite,
                                object_of_car .base_price)
 
-
+@login_required()
 def list_of_all_cars(request):
-    context_dict = {}
+    if not request.user.is_superuser:
+        return HttpResponse('Unauthorized', status=401)
+    else:
+        context_dict = {}
 
-    all_car_objects = car.objects.all()
-    context_dict['all_car_objects'] = all_car_objects
-    return render(request,'car_booking_app/list_of_all_cars.html', context_dict)
+        all_car_objects = car.objects.all()
+        context_dict['all_car_objects'] = all_car_objects
+        print "all_car_objects", all_car_objects
+        return render(request,'car_booking_app/list_of_all_cars.html', context_dict)
+

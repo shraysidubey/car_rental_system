@@ -13,5 +13,5 @@ urlpatterns = patterns('',
         url(r'^car_booking/$', views.car_booking, name='car_booking'),
         url(r'^user_history/$', views.user_history, name='user_history'),
         url(r'^car_history/(?P<id>[\w\-]+)/$', views.car_history, name='car_history'),
-        url(r'^list_of_all_cars/$', views.list_of_all_cars, name='list_of_all_car'),
+        url(r'^list_of_all_cars/$', views.list_of_all_cars, name='list_of_all_cars'),
 )
