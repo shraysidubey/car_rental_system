@@ -1,1 +1,1 @@
-web: gunicorn calorie.wsgi --log-file -
+web: gunicorn car_rental_system.wsgi --log-file -
