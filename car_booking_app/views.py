@@ -106,6 +106,8 @@ def profile(request):
     try:
         user_Profile = UserProfile.objects.get(user=request.user.id)                        #get object from UserProfile
         context_dict['user'] = user_Profile                                        #keu used in html and get the data
+        context_dict['request_user'] = request.user
+
         if request.method == 'POST' and 'edit_submit' in request.POST:      #condition when post request is there and form is editsubmit
             form = update_UserForm(request.POST,instance=request.user)                                  #this use to fetch the form
             context_dict['form'] = form
