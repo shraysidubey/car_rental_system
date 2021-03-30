@@ -15,6 +15,8 @@
             </script>
     <body>
 
+    {% if user.user.is_authenticated %}
+
         <strong>username: </strong>{{user.user.username}}<br>
         <strong>email: </strong>{{user.user.email}}<br>
         <strong>phone_number: </strong>{{user.phone_number}}<br>
@@ -23,7 +25,7 @@
     <p>
         <a href="/car_booking_app/user/delete/"><button> Delete </button></a><br></p>
     <p>
-        <a href="/car_booking_app/car_details/"><button> car details </button></a><br></p>
+        <a href="/car_booking_app/car_details/"><button> Add car </button></a><br></p>
     <p>
         <a href="/car_booking_app/car_booking/"><button> car booking </button></a><br></p>
     <p>
@@ -38,5 +40,6 @@
 
         </form>
 
+    {% endif %}
     </body>
 </html>
